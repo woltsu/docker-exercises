@@ -1,0 +1,5 @@
+1. docker run -d -it --name web-reader ubuntu:16.04 sh -c 'read website; sleep 3; curl http://$website;'
+2. docker exec -it web-reader bash
+3. apt-get update
+4. apt-get install curl
+5. docker attach web-reader
