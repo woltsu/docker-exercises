@@ -1,0 +1,2 @@
+1. docker build -t example-app .
+2. docker run -d -p 5000:5000 example-app
