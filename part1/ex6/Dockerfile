@@ -11,4 +11,6 @@ RUN apt install -y nodejs
 
 RUN npm install
 
-CMD ["npm", "start"]
+ENV FRONT_URL=http://localhost:5000
+
+CMD npm start

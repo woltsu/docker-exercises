@@ -1,0 +1,5 @@
+Dockerfile for frontend is in ex5 and for backend in ex6
+1. docker build -t example-frontend .
+2. docker build -t example-backend .
+3. docker run -d -p 8000:8000 -v$(pwd)/logs.txt:/src/logs.txt example-backend
+4. docker run -d -p 5000:5000 example-frontend

@@ -11,4 +11,6 @@ RUN apt install -y nodejs
 
 RUN npm install
 
-CMD ["npm", "start"]
+ENV API_URL=http://localhost:8000
+
+CMD npm start
