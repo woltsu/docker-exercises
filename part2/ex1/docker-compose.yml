@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  example-frontend-node:
+    build: ../../frontend-example-docker
+    image: example-frontend
+    container_name: example-frontend
+    ports:
+      - 5000:5000
+    environment:
+      - API_URL=http://localhost:8000
+
+  example-backend-node:
+    build: ../../backend-example-docker
+    image: example-backend
+    container_name: example-backend
+    volumes:
+      - ../../backend-example-docker/logs.txt:/src/logs.txt
+    ports:
+      - 8000:8000
+    environment:
+      - FRONT_URL=http://localhost:5000
