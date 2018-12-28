@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+
+  example-backend-node:
+    build: ../../backend-example-docker
+    image: example-backend
+    container_name: example-backend
+    volumes:
+      - ../../backend-example-docker/logs.txt:/src/logs.txt
+    ports:
+      - 8000:8000
+    environment:
+      - REDIS=redis
