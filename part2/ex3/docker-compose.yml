@@ -5,6 +5,13 @@ services:
     image: redis:latest
     container_name: redis
 
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+
   example-backend-node:
     build: ../../backend-example-docker
     image: example-backend
@@ -16,7 +23,11 @@ services:
     environment:
       - REDIS=redis
       - FRONT_URL=http://localhost:5000
-
+      - DB_USERNAME=dev
+      - DB_PASSWORD=dev
+      - DB_NAME=dev
+      - DB_HOST=postgres
+  
   example-frontend-node:
     build: ../../frontend-example-docker
     image: example-frontend
