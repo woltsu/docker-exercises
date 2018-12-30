@@ -1,1 +1,2 @@
-docker run -it curler
+1. docker build -t curler .
+2. docker run -it curler
