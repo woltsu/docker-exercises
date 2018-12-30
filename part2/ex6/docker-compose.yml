@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    volumes:
+      - redis-data:/data
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+
+  example-backend-node:
+    build: ../../backend-example-docker
+    image: example-backend
+    container_name: example-backend
+    volumes:
+      - ../../backend-example-docker/logs.txt:/src/logs.txt
+    ports:
+      - 8000:8000
+    environment:
+      - REDIS=redis
+      - FRONT_URL=http://localhost:5000
+      - DB_USERNAME=dev
+      - DB_PASSWORD=dev
+      - DB_NAME=dev
+      - DB_HOST=postgres
+  
+  example-frontend-node:
+    build: ../../frontend-example-docker
+    image: example-frontend
+    container_name: example-frontend
+    ports:
+      - 5000:5000
+    environment:
+      - API_URL=http://localhost:8000
+
+volumes:
+  redis-data:
+  postgres-data:
