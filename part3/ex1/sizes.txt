@@ -1,0 +1,5 @@
+example-frontend before: 418MB
+example-frontend after: 390MB
+
+example-backend before: 343MB
+example-backend after: 316MB
