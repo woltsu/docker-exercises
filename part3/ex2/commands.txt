@@ -1,0 +1,2 @@
+1. docker build -t yle-dl .
+2. docker run -it -v $(pwd)/out:/out yle-dl
