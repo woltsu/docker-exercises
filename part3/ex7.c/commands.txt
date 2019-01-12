@@ -1,0 +1,6 @@
+1. docker build -t github-to-dockerhub .
+2. docker run -it -v /var/run/docker.sock:/var/run/docker.sock github-to-dockerhub
+
+OR
+
+1. docker run -it -v /var/run/docker.sock:/var/run/docker.sock woltsu/github-to-dockerhub
